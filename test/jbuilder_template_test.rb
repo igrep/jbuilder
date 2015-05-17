@@ -21,8 +21,8 @@ JBUILDER
 BlogPost = Struct.new(:id, :body, :author_name)
 Collection = Struct.new(:id, :name)
 blog_authors = [ 'David Heinemeier Hansson', 'Pavel Pravosud' ].cycle
-BLOG_POST_COLLECTION = 10.times.map{ |i| BlogPost.new(i+1, "post body #{i+1}", blog_authors.next) }
-COLLECTION_COLLECTION = 5.times.map{ |i| Collection.new(i+1, "collection #{i+1}") }
+BLOG_POST_COLLECTION = Array.new(10){ |i| BlogPost.new(i+1, "post body #{i+1}", blog_authors.next) }
+COLLECTION_COLLECTION = Array.new(5){ |i| Collection.new(i+1, "collection #{i+1}") }
 
 ActionView::Template.register_template_handler :jbuilder, JbuilderHandler
 
